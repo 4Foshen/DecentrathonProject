@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class DestinationCollider : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private Transform[] nextDestinations;
+    
+    public Transform[] GetNextDestinations()
     {
-        if (other.gameObject.CompareTag("NPC"))
-        {
-            StartCoroutine(DestinationCoroutine(other));
-        }
-    }
-    IEnumerator DestinationCoroutine(Collider collider)
-    {
-        yield return new WaitForSeconds(3);
-        collider.gameObject.GetComponent<AgentController>().ChooseDestination();
+        return nextDestinations;
     }
 }

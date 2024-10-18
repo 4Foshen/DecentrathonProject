@@ -5,28 +5,52 @@ using UnityEngine.AI;
 
 public class AgentController : MonoBehaviour
 {
-    private int previousNum;
-    private NavMeshAgent agent;
-    public Transform[] destination;
+    private CarChecker carChecker;
+    public Transform[] destinations;
+    public NavMeshAgent agent;
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        ChooseDestination();
+        carChecker = GetComponent<CarChecker>();
+        StartCoroutine(ChooseDestination());
+    }
+    //private void Update()
+    //{
+    //    if (agent.isStopped && destinations != null)
+    //    {
+    //        StartCoroutine(ChooseDestination());
+    //    }
+    //}
+
+    public IEnumerator ChooseDestination()
+    {
+        Debug.Log("Destination choosed");
+        yield return new WaitForSeconds(1);
+        int randNum;
+        if (destinations.Length == 1) 
+            randNum = 0;
+        else 
+            randNum = Random.Range(0, destinations.Length);
+
+        agent.SetDestination(destinations[randNum].position);
     }
 
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-    public void ChooseDestination()
-    {
-        int randNum = Random.Range(0, destination.Length);
-        while(previousNum == randNum)
+        if(other.GetComponent<DestinationCollider>() != null)
         {
-           randNum = Random.Range(0, destination.Length);
-        }
+            carChecker.isCrosswalking = false;
+            destinations = other.GetComponent<DestinationCollider>().GetNextDestinations();
+            StartCoroutine(ChooseDestination());
 
-        previousNum = randNum;
-        agent.SetDestination(destination[randNum].position);
+        }
+        else if(other.GetComponent<CrosswalkDestination>() != null && !carChecker.isCrosswalking)
+        {
+            Debug.Log("Crosswalk touched!");
+            carChecker.isCrosswalking = true;
+            CrosswalkDestination destination = other.GetComponent<CrosswalkDestination>();
+            destinations = destination.GetCrosswalkDestination();
+        }
     }
 }

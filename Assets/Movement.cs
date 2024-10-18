@@ -26,7 +26,6 @@ public class Movement : MonoBehaviour
     private void UpdateTargetPosition() 
     {
         _targetPositionID++;
-        Debug.Log(_targetPosition.position);
         if (_targetPositionID == _positions.Length) _targetPositionID = 0;
         _targetPosition = _positions[_targetPositionID];
     }

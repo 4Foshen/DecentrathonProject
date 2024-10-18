@@ -7,11 +7,12 @@ TagManager:
   - NPC
   - MovementPos
   - Car
+  - Crosswalk
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Car
   - Water
   - UI
   - 

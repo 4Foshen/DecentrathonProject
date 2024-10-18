@@ -5,25 +5,37 @@ using UnityEngine.AI;
 
 public class CarChecker : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    [SerializeField] private Transform otherPart;
+    private AgentController controller;
+
+    [SerializeField] private LayerMask carLayer;
+    [SerializeField] private float detectionRadius;
+    public bool isCrosswalking;
+    public bool isWaiting;
 
     private void Start()
     {
-        agent = GetComponentInParent<NavMeshAgent>();
+        controller = GetComponent<AgentController>();
     }
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.CompareTag("Car"))
+        if (isCrosswalking)
         {
-            agent.SetDestination(transform.position);
+            CheckForCars();
         }
     }
-    private void OnTriggerExit(Collider other)
+    public void CheckForCars()
     {
-        if (other.gameObject.CompareTag("Car"))
+        Collider[] cars = Physics.OverlapSphere(transform.position, detectionRadius, carLayer);
+        isWaiting = cars.Length > 0;
+
+        if (!isWaiting)
         {
-            agent.SetDestination(otherPart.position);
+            StartCoroutine(controller.ChooseDestination());
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
