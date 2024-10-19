@@ -12,6 +12,7 @@ public class CarChecker : MonoBehaviour
     public bool isCrosswalking;
     public bool isWaiting;
 
+
     private void Start()
     {
         controller = GetComponent<AgentController>();
@@ -27,12 +28,17 @@ public class CarChecker : MonoBehaviour
     {
         Collider[] cars = Physics.OverlapSphere(transform.position, detectionRadius, carLayer);
         isWaiting = cars.Length > 0;
+        Debug.Log(cars.Length);
 
         if (!isWaiting)
         {
-            StartCoroutine(controller.ChooseDestination());
+            if (controller.agent.remainingDistance <= controller.agent.stoppingDistance)
+            {
+                StartCoroutine(controller.ChooseDestination());
+            }
         }
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

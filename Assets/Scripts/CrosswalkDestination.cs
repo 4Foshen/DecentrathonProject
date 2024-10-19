@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrosswalkDestination : MonoBehaviour
 {
     [SerializeField] private Transform[] crosswalkDestination;
+    public Transform crosswalkTarget;
 
     public Transform[] GetCrosswalkDestination()
     {

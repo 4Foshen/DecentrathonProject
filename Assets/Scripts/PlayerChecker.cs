@@ -15,24 +15,16 @@ public class PlayerChecker : MonoBehaviour
     }
     private void ChooseAction()
     {
+        Debug.Log("Touch player");
+        int randNum = Random.Range(0, clips.Length + 1 + 3);
 
-        int randNum = Random.Range(0, clips.Length);
-        switch (randNum)
+        if(randNum <= clips.Length - 1)
         {
-            case 0:
-                PlaySound(randNum);
-                break;
-            case 1:
-                PlaySound(randNum);
-                break;
-            case 2:
-                PlaySound(randNum);
-                break;
-            case 3:
-                //Aniamtion;
-                break;
-            default:
-                break;
+            PlaySound(randNum);
+        }
+        else if(randNum ==  clips.Length)
+        {
+            //Animation
         }
     }
     private void PlaySound(int num)
