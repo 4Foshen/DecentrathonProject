@@ -302,9 +302,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4771458336825205651}
   clips:
-  - {fileID: 8300000, guid: bb3f2822e4bb30948a1f4d7c4bf4700b, type: 3}
-  - {fileID: 8300000, guid: 0ee7aee5b8d48a840b5527d014b857c4, type: 3}
-  - {fileID: 8300000, guid: 81f6ef05a0eb23f4ab0c54aae352a50a, type: 3}
+  - {fileID: 8300000, guid: 992e2b1b4de72a443973406bd5b0d5e5, type: 3}
+  - {fileID: 8300000, guid: e0c3b5ee90aac5b45ab1c767c031c199, type: 3}
+  - {fileID: 8300000, guid: 62375c2cb870626409a6d6009da06e69, type: 3}
 --- !u!135 &1282261699679230475
 SphereCollider:
   m_ObjectHideFlags: 0

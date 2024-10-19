@@ -2360,8 +2360,9 @@ MonoBehaviour:
   audioSource: {fileID: 8548387909513052304}
   clips:
   - {fileID: 8300000, guid: b9cd44e75e00cc54a91b0829bed2b361, type: 3}
-  - {fileID: 8300000, guid: 0ee7aee5b8d48a840b5527d014b857c4, type: 3}
-  - {fileID: 8300000, guid: 81f6ef05a0eb23f4ab0c54aae352a50a, type: 3}
+  - {fileID: 8300000, guid: 25357f7897179b347aae8d5a631c8b89, type: 3}
+  - {fileID: 8300000, guid: ed2a6421f2675fb46b70d20a5bd260d8, type: 3}
+  - {fileID: 8300000, guid: 1afbf01eed7fbd146932f514eb3ca328, type: 3}
 --- !u!135 &441812496737690166
 SphereCollider:
   m_ObjectHideFlags: 0
