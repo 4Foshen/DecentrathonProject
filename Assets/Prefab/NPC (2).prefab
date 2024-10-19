@@ -764,11 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70eeb6cda70602f41be57ed4d048dc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  destinations: []
   agent: {fileID: 7965020145396205356}
 --- !u!114 &7563229987601532175
 MonoBehaviour:
@@ -2363,7 +2359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 8548387909513052304}
   clips:
-  - {fileID: 8300000, guid: bb3f2822e4bb30948a1f4d7c4bf4700b, type: 3}
+  - {fileID: 8300000, guid: b9cd44e75e00cc54a91b0829bed2b361, type: 3}
   - {fileID: 8300000, guid: 0ee7aee5b8d48a840b5527d014b857c4, type: 3}
   - {fileID: 8300000, guid: 81f6ef05a0eb23f4ab0c54aae352a50a, type: 3}
 --- !u!135 &441812496737690166

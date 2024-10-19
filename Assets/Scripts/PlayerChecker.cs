@@ -22,10 +22,6 @@ public class PlayerChecker : MonoBehaviour
         {
             PlaySound(randNum);
         }
-        else if(randNum ==  clips.Length)
-        {
-            //Animation
-        }
     }
     private void PlaySound(int num)
     {
