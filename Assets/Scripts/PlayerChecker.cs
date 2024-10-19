@@ -16,7 +16,7 @@ public class PlayerChecker : MonoBehaviour
     private void ChooseAction()
     {
         Debug.Log("Touch player");
-        int randNum = Random.Range(0, clips.Length + 1 + 3);
+        int randNum = Random.Range(0, clips.Length + 4);
 
         if(randNum <= clips.Length - 1)
         {
